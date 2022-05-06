@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     var tries = 0
     var wins = 0
     var loses = 0
+    
     func winningCheck(number : Int) {
         if number == winningNumber {
             changingTitle.text = "You win !\n\n🎉🎊🎉"
@@ -99,12 +100,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetCountTap(_ sender: UIButton) {
-            tries = 0
-            wins = 0
-            loses = 0
-            numberOfTries.text = String(0)
-            winCount.text = String(0)
-            loseCount.text = String(0)
+        let winningPercentage : Double = Double((wins * 100)/tries)
+        changingTitle.text = "Your winning percentage is \(winningPercentage)%"
+        tries = 0
+        wins = 0
+        loses = 0
+        numberOfTries.text = String(0)
+        winCount.text = String(0)
+        loseCount.text = String(0)
+        resetCount.isEnabled = false
     }
 }
 
